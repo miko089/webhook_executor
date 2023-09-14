@@ -4,4 +4,4 @@ tasks:
   - id: test2
     command: "touch test2"
   - id: test3
-    command: "touchd test3"
+    command: "touch test3 && echo \"meow meow meow\" >> test3"

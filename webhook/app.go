@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"github.com/gofiber/fiber/v2"
 	"os/exec"
-	"strings"
 	"test2/configParser"
 )
 
@@ -28,8 +27,7 @@ func New(authKey string) *fiber.App {
 			c.Status(404)
 			return c.SendString("wrong id")
 		}
-		commandArgs := strings.Split(command, " ")
-		cmd := exec.Command(commandArgs[0], commandArgs[1:]...)
+		cmd := exec.Command("bash", "-c", command)
 		err = cmd.Run()
 		if err != nil {
 			c.Status(400)
