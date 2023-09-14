@@ -1,0 +1,7 @@
+tasks:
+  - id: test1
+    command: "touch test1"
+  - id: test2
+    command: "touch test2"
+  - id: test3
+    command: "touchd test3"
