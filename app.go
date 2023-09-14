@@ -14,5 +14,5 @@ func main() {
 	}
 	authKey := os.Getenv("AUTH_KEY")
 	app := webhook.New(authKey)
-	app.Listen(":3000")
+	_ = app.Listen(":3000")
 }

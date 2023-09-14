@@ -16,7 +16,7 @@ type Config struct {
 }
 
 func parseFile(filename string) (*Config, error) {
-	data, err := os.ReadFile("tasks.yaml")
+	data, err := os.ReadFile(filename)
 	if err != nil {
 		return nil, err
 	}
