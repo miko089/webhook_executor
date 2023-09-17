@@ -7,7 +7,7 @@ import (
 	"test2/configParser"
 )
 
-func New(authKey string) *fiber.App {
+func New(filename, authKey string) *fiber.App {
 	app := fiber.New()
 	app.Post("/", func(c *fiber.Ctx) error {
 		payload := struct {
@@ -22,7 +22,7 @@ func New(authKey string) *fiber.App {
 			c.Status(401)
 			return c.SendString("wrong auth key")
 		}
-		command, err := configParser.GetCommand(payload.ID)
+		command, err := configParser.GetCommand(filename, payload.ID)
 		if err != nil {
 			c.Status(404)
 			return c.SendString("wrong id")
