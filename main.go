@@ -13,6 +13,7 @@ func main() {
 		log.Fatal(err)
 	}
 	authKey := os.Getenv("AUTH_KEY")
-	app := webhook.New(authKey)
+	filename := os.Getenv("TASKS_FILE")
+	app := webhook.New(filename, authKey)
 	_ = app.Listen(":3000")
 }

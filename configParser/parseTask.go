@@ -15,22 +15,22 @@ type Config struct {
 	Tasks []*Task `yaml:"tasks"`
 }
 
-func parseFile(filename string) (*Config, error) {
-	data, err := os.ReadFile(filename)
-	if err != nil {
-		return nil, err
-	}
+func parseFile(data []byte) (*Config, error) {
 
 	var config *Config
-	err = yaml.Unmarshal(data, &config)
+	err := yaml.Unmarshal(data, &config)
 	if err != nil {
 		return nil, err
 	}
 	return config, nil
 }
 
-func GetCommand(id string) (string, error) {
-	config, err := parseFile("tasks.yaml")
+func GetCommand(filename, id string) (string, error) {
+	data, err := os.ReadFile(filename)
+	if err != nil {
+		return "", err
+	}
+	config, err := parseFile(data)
 	if err != nil {
 		return "", err
 	}
