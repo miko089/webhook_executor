@@ -6,7 +6,7 @@ on:
   pull_request:
     branches:
       - master
-      - miko089-patch-1
+      - master-format/linted-code 
 
 
 jobs:
