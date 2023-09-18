@@ -1,5 +1,7 @@
 # Nekolections
 
+
+![example workflow](https://github.com/miko089/webhook_executor/actions/workflows/go.yml/badge.svg)
 ## Usage of env.example:
 There are two fields: AUTH_KEY and TASKS_FILE, 
 you should rename this file to ".env" and move 
