@@ -4,9 +4,10 @@ import (
 	"fmt"
 	"github.com/gofiber/fiber/v2"
 	"os/exec"
-	"test2/configParser"
+	"test2/configparser"
 )
 
+// New func returns app that do all, that needs
 func New(filename, authKey string) *fiber.App {
 	app := fiber.New()
 	app.Post("/", func(c *fiber.Ctx) error {
@@ -22,7 +23,7 @@ func New(filename, authKey string) *fiber.App {
 			c.Status(401)
 			return c.SendString("wrong auth key")
 		}
-		command, err := configParser.GetCommand(filename, payload.ID)
+		command, err := configparser.GetCommand(filename, payload.ID)
 		if err != nil {
 			c.Status(404)
 			return c.SendString("wrong id")
