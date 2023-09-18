@@ -1,0 +1,31 @@
+name: Go lint and test
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: ^1.21
+
+      - name: Install linter
+        run: go get -u golang.org/x/lint/golint
+
+      - name: Lint code
+        run: golint ./...
+
+      - name: Test code
+        run: go test -v ./...
