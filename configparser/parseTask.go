@@ -1,4 +1,4 @@
-package configParser
+package configparser
 
 import (
 	"errors"
@@ -6,11 +6,13 @@ import (
 	"os"
 )
 
+// Task is struct for unmarshalling config.yaml
 type Task struct {
 	ID      string `yaml:"id"`
 	Command string `yaml:"command"`
 }
 
+// Config is struct for unmarshalling config.yaml
 type Config struct {
 	Tasks []*Task `yaml:"tasks"`
 }
@@ -25,6 +27,7 @@ func parseFile(data []byte) (*Config, error) {
 	return config, nil
 }
 
+// GetCommand gives command from file with some id
 func GetCommand(filename, id string) (string, error) {
 	data, err := os.ReadFile(filename)
 	if err != nil {
