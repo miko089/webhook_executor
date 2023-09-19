@@ -7,6 +7,7 @@ import (
 	"test2/configparser"
 )
 
+// New func returns app that do all, that needs
 func New(filename, authKey string) *fiber.App {
 	app := fiber.New()
 	app.Post("/", func(c *fiber.Ctx) error {
