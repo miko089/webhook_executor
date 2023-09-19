@@ -1,4 +1,4 @@
-package configParser
+package configparser
 
 import "testing"
 
@@ -19,6 +19,7 @@ func cmp(a *Config, b *Config) bool {
 	return true
 }
 
+// TestParseTask tests unmarshalling of yaml file
 func TestParseTask(t *testing.T) {
 	t.Log("Testing unmarshalling of parseFile function")
 	{
