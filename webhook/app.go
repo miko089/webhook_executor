@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/gofiber/fiber/v2"
 	"os/exec"
+	"test2/configparser"
 )
 
 func New(filename, authKey string) *fiber.App {
@@ -21,7 +22,7 @@ func New(filename, authKey string) *fiber.App {
 			c.Status(401)
 			return c.SendString("wrong auth key")
 		}
-		command, err := configParser.GetCommand(filename, payload.ID)
+		command, err := configparser.GetCommand(filename, payload.ID)
 		if err != nil {
 			c.Status(404)
 			return c.SendString("wrong id")
