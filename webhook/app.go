@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"github.com/gofiber/fiber/v2"
 	"os/exec"
-	"test2/configParser"
 )
 
 func New(filename, authKey string) *fiber.App {
